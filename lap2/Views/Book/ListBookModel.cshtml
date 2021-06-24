@@ -1,0 +1,39 @@
+﻿@model IEnumerable<lap2.Models.Book>
+
+@{ ViewBag.Title = "ListBookModel";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Danh SAch Book</h2>
+<table cellpadding="10" border="1">
+    <thead>
+        <tr>
+            <th>title</th>
+            <th>Author</th>
+            <th>Images</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Author)
+    </td>
+    <td>
+        <img src="@item.ImageCover" with="95" title="ImageCover" />
+    </td>
+    <td>
+        <a href="/Book/EditBook/@item.ID" title="Edit Book">Edit</a>
+    </td>
+    <td>
+        <a href="/Book/DeleteBook/@item.ID" title="Delete Book">Delete</a>
+    </td>
+</tr>}
+
+</table>
